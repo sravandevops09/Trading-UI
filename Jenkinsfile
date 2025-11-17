@@ -1,6 +1,10 @@
 pipeline {
     agent any
-      
+
+    environment {
+    NODE_OPTIONS="--openssl-legacy-provider"
+}
+
 
     stages {
         stage('Git checkout') {
@@ -13,6 +17,8 @@ pipeline {
             steps{
                 sh'npm install'
                 sh'npm run build'
+                sh 'export NODE_OPTIONS=--openssl-legacy-provider && npm run build'
+
             }
         }
     }
