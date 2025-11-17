@@ -11,7 +11,6 @@ pipeline {
 }
         stage('Install npm prerequisites'){
             steps{
-                sh'npm audit fix'
                 sh'npm install'
                 sh'npm run build'
             }
